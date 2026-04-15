@@ -31,15 +31,15 @@ To determine the optimal architecture, we conducted a comprehensive ablation stu
 
 Models were trained on a 200,000-row labeled dataset and evaluated using **Mean Squared Error (MSE)** across all 6 dimensions.
 
-| Architecture Paradigm | Model | Train Loss (MSE) | Validation Loss (MSE) |
-|:----------------------|:------|:----------------:|:---------------------:|
-| **Multi-Task Transformer** | 👑 **RoBERTa-base** | **0.0381** | **0.0431** |
-| Multi-Task Transformer | BERT-base | 0.0469 | 0.0500 |
-| Multi-Task Transformer | BERT-large | 0.0536 | 0.0503 |
-| **Metric Learning** | Two-Tower (BERT-base) | N/A | 0.0517 |
-| Classical ML | TF-IDF + XGBoost | 0.0832 | 0.0870 |
-| Classical ML | TF-IDF + Random Forest | 0.0543 | 0.1988 |
-
+| Model | Justification | Demands | Counterargs | Content | Groups | Politics | Overall |
+|:------|:-------------:|:-------:|:-----------:|:-------:|:------:|:--------:|:-------:|
+| Mean baseline | 0.1634 | 0.1314 | 0.1221 | 0.1054 | 0.0639 | 0.0937 | 0.1133 |
+| TF-IDF + RF | 0.1134 | 0.1134 | 0.1036 | 0.0975 | 0.0585 | 0.0858 | 0.0954 |
+| TF-IDF + XGBoost | 0.0991 | 0.1028 | 0.0937 | 0.0917 | 0.0546 | 0.0803 | 0.0870 |
+| BERT-base | 0.0488 | 0.0590 | 0.0577 | 0.0660 | 0.0357 | 0.0494 | 0.0527 |
+| BERT-large | 0.04662 | 0.05623 | 0.05570 | 0.06277 | 0.03374 | 0.04721 | 0.05038 |
+| RoBERTa | 0.0484 | 0.0568 | 0.0565 | 0.0640 | 0.0342 | 0.0475 | 0.0512 |
+| 2Tower | 0.00964 | 0.01141 | 0.01133 | 0.01445 | 0.00700 | 0.00921 | 0.01050 |
 ---
 
 ## 🏗️ Architectures Explored & Key Findings
