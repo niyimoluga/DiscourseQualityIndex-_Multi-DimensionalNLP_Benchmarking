@@ -1,5 +1,5 @@
 # DiscourseQualityIndex-_Multi-DimensionalNLP_Benchmarking
-# DiscourseQualityIndex: Multi-Dimensional NLP Benchmarking
+
 
 ## 📌 Project Overview
 
