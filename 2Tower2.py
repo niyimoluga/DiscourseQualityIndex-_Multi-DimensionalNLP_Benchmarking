@@ -8,6 +8,8 @@ from datasets import load_dataset
 from sentence_transformers import SentenceTransformer, losses, SentenceTransformerTrainer, SentenceTransformerTrainingArguments, util
 from sentence_transformers.evaluation import SentenceEvaluator
 
+# helo this is tim
+
 # 1. Custom Evaluator to produce the 6 MSE Columns
 class MultiDimensionMseEvaluator(SentenceEvaluator):
     def __init__(self, test_df, anchors_dict):
