@@ -39,7 +39,7 @@ Models were trained on a 200,000-row labeled dataset and evaluated using **Mean 
 | BERT-base | 0.0488 | 0.0590 | 0.0577 | 0.0660 | 0.0357 | 0.0494 | 0.0527 |
 | BERT-large | 0.04662 | 0.05623 | 0.05570 | 0.06277 | 0.03374 | 0.04721 | 0.05038 |
 | RoBERTa | 0.0484 | 0.0568 | 0.0565 | 0.0640 | 0.0342 | 0.0475 | 0.0512 |
-| 2Tower | 0.00964 | 0.01141 | 0.01133 | 0.01445 | 0.00700 | 0.00921 | 0.01050 |
+| 2Tower | — | — | — | — | — | — | *(pending retrain)* |
 ---
 
 ## 🏗️ Architectures Explored & Key Findings
@@ -66,7 +66,7 @@ Models were trained on a 200,000-row labeled dataset and evaluated using **Mean 
 
 **Model**: A dual-encoder setup mapping Anchor Definitions (e.g., the definition of "Respect") and user comments into the same vector space, optimized via `CosineSimilarityLoss`.
 
-**The Insight**: While scoring slightly lower in pure mathematical accuracy than RoBERTa (0.0517 vs 0.0431), the **Two-Tower model is the production champion**. By pre-computing and caching the 6 definition vectors offline, live inference on incoming social media posts only requires a single pass through one encoder and a sub-millisecond dot-product calculation. This architecture solves the **<500ms latency requirement** for live-feed integration while allowing infinite scalability (new dimensions can be added without retraining the network).
+**The Insight**: While the Two-Tower model's accuracy relative to RoBERTa is pending re-evaluation after a metric-scale correction, the **Two-Tower model is the production champion**. By pre-computing and caching the 6 definition vectors offline, live inference on incoming social media posts only requires a single pass through one encoder and a sub-millisecond dot-product calculation. This architecture solves the **<500ms latency requirement** for live-feed integration while allowing infinite scalability (new dimensions can be added without retraining the network).
 
 ---
 

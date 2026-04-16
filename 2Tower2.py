@@ -41,8 +41,8 @@ class MultiDimensionMseEvaluator(SentenceEvaluator):
             # AI Similarity Prediction
             predictions = util.cos_sim(comment_embeddings, anchor_embedding).flatten()
             
-            # Real Labels (Normalized 0 to 1)
-            targets = torch.tensor([(float(s) + 1) / 2 for s in self.test_df[column_key]]).to(model.device)
+            # Real Labels (raw scale [-1, 1] to match cosine similarity range)
+            targets = torch.tensor([float(s) for s in self.test_df[column_key]]).to(model.device)
             
             # Calculate MSE for this specific column
             mse = torch.mean((predictions - targets) ** 2).item()
@@ -74,7 +74,7 @@ def prepare_data(batch):
         for col in anchors.keys():
             s1.append(batch["comment"][i])
             s2.append(anchors[col])
-            labels.append((float(batch[col][i]) + 1) / 2)
+            labels.append(float(batch[col][i]))
     return {"sentence1": s1, "sentence2": s2, "label": labels}
 
 train_dataset = split["train"].map(prepare_data, batched=True, remove_columns=split["train"].column_names)
